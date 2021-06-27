@@ -1,0 +1,18 @@
+{
+  "npmScope": "route-path-builder",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "playground-e2e": {
+      "tags": []
+    },
+    "playground": {
+      "tags": []
+    }
+  }
+}
