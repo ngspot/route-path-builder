@@ -25,7 +25,9 @@
               "apps/playground/src/favicon.ico",
               "apps/playground/src/assets"
             ],
-            "styles": ["apps/playground/src/styles.scss"],
+            "styles": [
+              "apps/playground/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -79,7 +81,10 @@
               "apps/playground/tsconfig.app.json",
               "apps/playground/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/playground/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/playground/**"
+            ]
           }
         },
         "test": {
@@ -89,6 +94,10 @@
             "tsConfig": "apps/playground/tsconfig.spec.json",
             "setupFile": "apps/playground/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     },
@@ -113,9 +122,48 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/playground-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/playground-e2e/**"]
+            "tsConfig": [
+              "apps/playground-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/playground-e2e/**"
+            ]
           }
+        }
+      }
+    },
+    "route-path-builder": {
+      "projectType": "library",
+      "root": "libs/route-path-builder",
+      "sourceRoot": "libs/route-path-builder/src",
+      "prefix": "route-path-builder",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/route-path-builder/tsconfig.lib.json",
+              "libs/route-path-builder/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/route-path-builder/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/route-path-builder/jest.config.js",
+            "tsConfig": "libs/route-path-builder/tsconfig.spec.json",
+            "setupFile": "libs/route-path-builder/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "routePathBuilder", "camelCase"],
+    "component-selector": [true, "element", "route-path-builder", "kebab-case"]
+  }
+}

@@ -13,6 +13,9 @@
     },
     "playground": {
       "tags": []
+    },
+    "route-path-builder": {
+      "tags": []
     }
   }
 }
