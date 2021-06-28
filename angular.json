@@ -20,7 +20,7 @@
             "main": "apps/playground/src/main.ts",
             "polyfills": "apps/playground/src/polyfills.ts",
             "tsConfig": "apps/playground/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/playground/src/favicon.ico",
               "apps/playground/src/assets"
@@ -41,9 +41,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -52,6 +50,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -91,7 +93,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/playground/jest.config.js",
-            "tsConfig": "apps/playground/tsconfig.spec.json",
             "setupFile": "apps/playground/src/test-setup.ts"
           }
         },
@@ -139,46 +140,58 @@
       "sourceRoot": "libs/route-path-builder/src",
       "prefix": "route-path-builder",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/route-path-builder"
+          ],
           "options": {
-            "tsConfig": [
-              "libs/route-path-builder/tsconfig.lib.json",
-              "libs/route-path-builder/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/route-path-builder/**"
+            "tsConfig": "libs/route-path-builder/tsconfig.lib.json",
+            "project": "libs/route-path-builder/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/route-path-builder/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/route-path-builder/src/**/*.ts",
+              "libs/route-path-builder/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/route-path-builder"
+          ],
           "options": {
             "jestConfig": "libs/route-path-builder/jest.config.js",
-            "tsConfig": "libs/route-path-builder/tsconfig.spec.json",
-            "setupFile": "libs/route-path-builder/src/test-setup.ts"
+            "passWithNoTests": true
           }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "63feb891-b7cf-4002-a4e1-5e1ebf04bf14"
   },
   "schematics": {
     "@nrwl/angular:application": {
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
+      "linter": "eslint",
       "unitTestRunner": "jest"
-    }
+    },
+    "@nrwl/angular:component": {}
   },
   "defaultProject": "playground"
 }

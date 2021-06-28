@@ -1,9 +1,20 @@
 module.exports = {
-  name: 'route-path-builder',
-  preset: '../../jest.config.js',
+  displayName: 'route-path-builder',
+  preset: '../../jest.preset.js',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+    },
+  },
   coverageDirectory: '../../coverage/libs/route-path-builder',
+  transform: {
+    '^.+\\.(ts|js|html)$': 'jest-preset-angular',
+  },
   snapshotSerializers: [
-    'jest-preset-angular/AngularSnapshotSerializer.js',
-    'jest-preset-angular/HTMLCommentSerializer.js'
-  ]
+    'jest-preset-angular/build/serializers/no-ng-attributes',
+    'jest-preset-angular/build/serializers/ng-snapshot',
+    'jest-preset-angular/build/serializers/html-comment',
+  ],
 };
