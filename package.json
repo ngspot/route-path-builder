@@ -29,7 +29,7 @@
     "contributors:add": "all-contributors add",
     "hooks:pre-commit": "node hooks/pre-commit.js",
     "commit": "cz",
-    "deploy": "ng deploy --base-href=https://username.github.io/repo/",
+    "deploy": "ng deploy --base-href=https://ngspot.github.io/route-path-builder/",
     "copy": "cpx README.md dist/route-path-builder",
     "build:lib": "ng build route-path-builder --prod && npm run copy",
     "test:lib": "ng test route-path-builder",
