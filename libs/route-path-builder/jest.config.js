@@ -1,3 +1,5 @@
+require('jest-preset-angular/ngcc-jest-processor');
+
 module.exports = {
   displayName: 'route-path-builder',
   preset: '../../jest.preset.js',

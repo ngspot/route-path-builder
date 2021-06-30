@@ -25,9 +25,7 @@
               "apps/playground/src/favicon.ico",
               "apps/playground/src/assets"
             ],
-            "styles": [
-              "apps/playground/src/styles.scss"
-            ],
+            "styles": ["apps/playground/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -83,17 +81,13 @@
               "apps/playground/tsconfig.app.json",
               "apps/playground/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/playground/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/playground/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/playground/jest.config.js",
-            "setupFile": "apps/playground/src/test-setup.ts"
+            "jestConfig": "apps/playground/jest.config.js"
           }
         },
         "deploy": {
@@ -123,13 +117,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/playground-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/playground-e2e/**"
-            ]
+            "tsConfig": ["apps/playground-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/playground-e2e/**"]
           }
         }
       }
@@ -142,9 +131,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/route-path-builder"
-          ],
+          "outputs": ["dist/libs/route-path-builder"],
           "options": {
             "tsConfig": "libs/route-path-builder/tsconfig.lib.json",
             "project": "libs/route-path-builder/ng-package.json"
@@ -166,9 +153,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/route-path-builder"
-          ],
+          "outputs": ["coverage/libs/route-path-builder"],
           "options": {
             "jestConfig": "libs/route-path-builder/jest.config.js",
             "passWithNoTests": true

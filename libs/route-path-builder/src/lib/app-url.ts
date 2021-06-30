@@ -1,4 +1,4 @@
-import { Router, UrlTree } from '@angular/router';
+import { NavigationBehaviorOptions, Router, UrlTree } from '@angular/router';
 
 /**
  * Data structure returned by the .url() and .urlFromCommands() methods.
@@ -23,7 +23,7 @@ export class AppUrl {
   /**
    * Navigate to this URL
    */
-  navigate() {
-    this.router.navigateByUrl(this.url);
+  navigate(extras?: NavigationBehaviorOptions) {
+    this.router.navigateByUrl(this.url, extras);
   }
 }
