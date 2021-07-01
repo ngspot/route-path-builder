@@ -15,12 +15,12 @@ jobs:
 
       - name: NPM install, lint, build, test and release
         env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm ci
           npm run lint
           npm run build -- --prod
-          npm run test -- --watch=false --browsers=ChromeHeadless
+          npm run test -- --watch=false
           npm run build:lib
           npx semantic-release --debug
