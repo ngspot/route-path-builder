@@ -45,19 +45,21 @@ import { AppUrl } from './app-url';
  */
 @Injectable()
 export abstract class RoutePathBuilder {
+  /**
+   * Reference to the instance of parent RoutePathBuilder
+   */
   private parent: RoutePathBuilder | undefined;
+
+  /**
+   * The root path of the route associated with the module.
+   * Note, this path is relative.
+   */
+  private path = '';
 
   /**
    * Instance of injected Router
    */
   protected router: Router;
-
-  /**
-   * The root path of the route associated with the lazy feature module.
-   * Note, this path is relative.
-   * For the top level route, specify empty string.
-   */
-  protected abstract path: string;
 
   private get parentCommands() {
     let parent = this.parent;
@@ -134,7 +136,8 @@ export abstract class RoutePathBuilder {
 
   /**
    * Defines either child routes or routes associated with lazy feature module
-   * @param pathBuilderClass a class that extends `RoutePathBuilder`
+   * @param path a class that extends `RoutePathBuilder`
+   * @param childRoutePathBuilderClass a class that extends `RoutePathBuilder`
    * @returns The class containing routes of the lazy feature module
    * @usageNotes
    * ```
@@ -143,9 +146,13 @@ export abstract class RoutePathBuilder {
    * }
    * ```
    */
-  protected childRoutes<T extends RoutePathBuilder>(pathBuilderClass: Type<T>) {
-    const pathBuilder = this.injector.get<T>(pathBuilderClass);
+  protected childRoutes<T extends RoutePathBuilder>(
+    path: string,
+    childRoutePathBuilderClass: Type<T>
+  ) {
+    const pathBuilder = this.injector.get<T>(childRoutePathBuilderClass);
     pathBuilder.parent = this;
+    pathBuilder.path = path;
     return pathBuilder;
   }
 }

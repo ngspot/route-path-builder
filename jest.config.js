@@ -7,5 +7,4 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageReporters: ['html'],
   passWithNoTests: true,
-  projects: '<rootDir>/libs/route-path-builder',
 };

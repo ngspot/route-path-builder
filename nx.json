@@ -8,12 +8,6 @@
     "nx.json": "*"
   },
   "projects": {
-    "playground": {
-      "tags": []
-    },
-    "playground-e2e": {
-      "tags": []
-    },
     "route-path-builder": {
       "tags": []
     }

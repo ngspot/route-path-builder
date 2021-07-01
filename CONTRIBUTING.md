@@ -1,6 +1,6 @@
 # Contributing to Route-path-builder
 
-🙏 We would ❤️ for you to contribute to Route-path-builder and help make it even better than it is today!
+🙏 We would ❤️ for you to contribute to **route-path-builder** and help make it even better than it is today!
 
 ## Developing
 
@@ -14,13 +14,6 @@ Run the tests:
 
 ```bash
 npm test
-npm run e2e
-```
-
-Run the playground app:
-
-```bash
-npm start
 ```
 
 ## Building

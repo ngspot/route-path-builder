@@ -5,9 +5,7 @@ import { RoutePathBuilder } from './route-path-builder';
 
 @Injectable()
 export class AppRoutes extends RoutePathBuilder {
-  path = '';
-
-  child1 = this.childRoutes(Child1Routes);
+  child1 = this.childRoutes('child1', Child1Routes);
 
   url1() {
     return this.url('url1');
@@ -20,9 +18,7 @@ export class AppRoutes extends RoutePathBuilder {
 
 @Injectable()
 export class Child1Routes extends RoutePathBuilder {
-  path = 'child1';
-
-  child2 = this.childRoutes(Child2Routes);
+  child2 = this.childRoutes('child2', Child2Routes);
 
   url1() {
     return this.url('child1Url');
@@ -31,8 +27,6 @@ export class Child1Routes extends RoutePathBuilder {
 
 @Injectable()
 export class Child2Routes extends RoutePathBuilder {
-  path = 'child2';
-
   url1() {
     return this.url('child2Url');
   }

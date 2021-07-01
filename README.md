@@ -13,16 +13,21 @@
 [![spectator](https://img.shields.io/badge/tested%20with-spectator-2196F3.svg?style=flat-square)]()
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-> The Library Slogan
+> Declarative Route Path Management in Angular Apps
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda atque blanditiis cum delectus eligendi ipsam iste iure, maxime modi molestiae nihil obcaecati odit officiis pariatur quibusdam suscipit temporibus unde.
-Accusantium aliquid corporis cupiditate dolores eum exercitationem illo iure laborum minus nihil numquam odit officiis possimus quas quasi quos similique, temporibus veritatis? Exercitationem, iure magni nulla quo sapiente soluta. Esse?
+This library consists of a single abstract class: `RoutePathBuilder`. See [this article](#) to learn how to use it!
 
 ## Features
 
-- ✅ One
-- ✅ Two
-- ✅ Three
+- ✅ < 3kb bundle size
+- ✅ A single source of truth for each path in the application
+- ✅ Strong typings
+- ✅ Access to Angular's dependency injection
+- ✅ Use of absolute links (meaning, the generated links are absolute)
+- ✅ Modularity
+- ✅ Use of property chaining to reflect the nested nature of the routes
+- ✅ Use of relative URL parts for the assembly of the URLs.
+- ✅ Flexible return type
 
 ## Table of Contents
 
@@ -34,25 +39,39 @@ Accusantium aliquid corporis cupiditate dolores eum exercitationem illo iure lab
 
 ### NPM
 
-`npm install route-path-builder --save-dev`
+`npm install @ngspot/route-path-builder --save`
 
 ### Yarn
 
-`yarn add route-path-builder --dev`
+`yarn add @ngspot/route-path-builder`
 
 ## Usage
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda atque blanditiis cum delectus eligendi ipsam iste iure, maxime modi molestiae nihil obcaecati odit officiis pariatur quibusdam suscipit temporibus unde.
-
 ```ts
-function helloWorld() {}
+// app-routes.ts
+import { RoutePathBuilder } from '@ngspot/route-path-builder';
+
+@Injectable({ providedIn: 'any' })
+export class AppRoutes extends RoutePathBuilder {
+  products = this.childRoutes('products', RoutesForProducts);
+
+  about() {
+    return this.url('about');
+  }
+
+  contact() {
+    return this.url('contact');
+  }
+}
+
+// routes-for-products.ts
+@Injectable({ providedIn: 'any' })
+export class RoutesForProducts extends RoutePathBuilder {
+  orders() {
+    return this.url('orders');
+  }
+}
 ```
-
-## FAQ
-
-## How to ...
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid assumenda atque blanditiis cum delectus eligendi ips
 
 ## Contributors ✨
 
