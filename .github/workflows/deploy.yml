@@ -1,9 +1,9 @@
 name: Deploy on GitHub Pages
 
-on: 
+on:
   push:
     branches:
-     - master
+      - main
 
 jobs:
   build:
@@ -18,8 +18,8 @@ jobs:
 
       - name: NPM install, build and deploy
         env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm ci
           npm run build -- --prod

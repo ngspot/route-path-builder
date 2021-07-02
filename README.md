@@ -1,5 +1,5 @@
 <p align="center">
- <img width="20%" height="20%" src="./logo.svg">
+ <img width="20%" height="20%" src="./logo.png">
 </p>
 
 <br />
@@ -47,6 +47,8 @@ This library consists of a single abstract class: `RoutePathBuilder`. See [this 
 
 ## Usage
 
+1. Define your routes
+
 ```ts
 // app-routes.ts
 import { RoutePathBuilder } from '@ngspot/route-path-builder';
@@ -69,6 +71,20 @@ export class AppRoutes extends RoutePathBuilder {
 export class RoutesForProducts extends RoutePathBuilder {
   orders() {
     return this.url('orders');
+  }
+}
+```
+
+2. Use the `AppRoutes`:
+
+```ts
+class MyComponent {
+  constructor(private appRoutes: AppRotes) {}
+
+  someMethod() {
+    const aboutUrl = this.appRoutes.about().url;
+
+    this.appRoutes.products.orders().navigate();
   }
 }
 ```
