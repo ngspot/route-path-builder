@@ -8,7 +8,7 @@
     [
       "@semantic-release/npm",
       {
-        "pkgRoot": "./dist/route-path-builder",
+        "pkgRoot": "./dist/libs/route-path-builder",
         "tarballDir": "dist"
       }
     ],
