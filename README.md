@@ -79,7 +79,7 @@ export class RoutesForProducts extends RoutePathBuilder {
 
 ```ts
 class MyComponent {
-  constructor(private appRoutes: AppRotes) {}
+  constructor(private appRoutes: AppRoutes) {}
 
   someMethod() {
     const aboutUrl = this.appRoutes.about().url;
@@ -96,10 +96,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/DmitryEfimenko/"><img src="https://avatars.githubusercontent.com/u/2098175?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dmitry A. Efimenko</b></sub></a><br /><a href="#blog-DmitryEfimenko" title="Blogposts">📝</a> <a href="https://github.com/@ngspot/route-path-builder/commits?author=DmitryEfimenko" title="Code">💻</a> <a href="#design-DmitryEfimenko" title="Design">🎨</a> <a href="https://github.com/@ngspot/route-path-builder/commits?author=DmitryEfimenko" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/AnaBoca"><img src="https://avatars.githubusercontent.com/u/17017510?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ana Boca</b></sub></a><br /><a href="#blog-AnaBoca" title="Blogposts">📝</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+Also, thanks to [Netanel Basal](https://netbasal.medium.com/) for inspiring me to come up with this solution.
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
